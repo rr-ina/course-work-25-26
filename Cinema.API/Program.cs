@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Cinema.API.Data;
+using Cinema.API.Repositories.Interfaces;
+using Cinema.API.Repositories.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -8,13 +10,17 @@ var connectionString = builder.Configuration.GetConnectionString("DefaultConnect
 builder.Services.AddDbContext<CinemaDbContext>(options =>
     options.UseNpgsql(connectionString));
 
+builder.Services.AddScoped<IMovieRepo, MovieRepo>();
+builder.Services.AddScoped<IHallRepo, HallRepo>();
+builder.Services.AddScoped<ISessionRepo, SessionRepo>();
+builder.Services.AddScoped<ITiketRepo, TiketRepo>();
+
 builder.Services.AddControllers();
-// Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
+
 builder.Services.AddOpenApi();
 
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
