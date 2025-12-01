@@ -5,10 +5,9 @@ using Cinema.API.Repositories.Implementations;
 
 var builder = WebApplication.CreateBuilder(args);
 
+//підключення до бд
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
-
-builder.Services.AddDbContext<CinemaDbContext>(options =>
-    options.UseNpgsql(connectionString));
+builder.Services.AddDbContext<CinemaDbContext>(options => options.UseNpgsql(connectionString));
 
 builder.Services.AddScoped<IMovieRepo, MovieRepo>();
 builder.Services.AddScoped<IHallRepo, HallRepo>();
@@ -17,13 +16,21 @@ builder.Services.AddScoped<ITiketRepo, TiketRepo>();
 
 builder.Services.AddControllers();
 
-builder.Services.AddOpenApi();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen(options =>
+{
+    var xmlFilename = $"{System.Reflection.Assembly.GetExecutingAssembly().GetName().Name}.xml";
+    var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFilename);
+
+    options.IncludeXmlComments(xmlPath);
+});
 
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+    app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

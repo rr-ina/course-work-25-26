@@ -1,0 +1,104 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Cinema.API</name>
+    </assembly>
+    <members>
+        <member name="M:Cinema.API.Controllers.HallsController.GetAll">
+            <summary>
+            Returns a list of all halls
+            </summary>
+            <returns>List of halls</returns>
+        </member>
+        <member name="M:Cinema.API.Controllers.HallsController.GetById(System.Int32)">
+            <summary>
+            Returns a specific hall by ID
+            </summary>
+            <param name="id">Hall ID</param>
+            <returns>The requested hall</returns>
+        </member>
+        <member name="M:Cinema.API.Controllers.HallsController.Create(Cinema.API.Models.Hall)">
+            <summary>
+            Creates a new hall
+            </summary>
+            <param name="hall">Hall object</param>
+            <returns>Created hall</returns>
+        </member>
+        <member name="M:Cinema.API.Controllers.HallsController.Delete(System.Int32)">
+            <summary>
+            Deletes a hall by ID
+            </summary>
+            <param name="id">Hall ID</param>
+        </member>
+        <member name="M:Cinema.API.Controllers.MoviesController.GetAll">
+            <summary>
+            Returns a list of all movies
+            </summary>
+            <returns>List of movies</returns>
+        </member>
+        <member name="M:Cinema.API.Controllers.MoviesController.GetById(System.Int32)">
+            <summary>
+            Returns a specific movie by ID
+            </summary>
+            <param name="id">Movie ID</param>
+            <returns>The requested movie</returns>
+        </member>
+        <member name="M:Cinema.API.Controllers.MoviesController.Create(Cinema.API.Models.Movie)">
+            <summary>
+            Creates a new movie
+            </summary>
+            <param name="movie">Movie object</param>
+            <returns>Created movie</returns>
+        </member>
+        <member name="M:Cinema.API.Controllers.MoviesController.Update(Cinema.API.Models.Movie)">
+            <summary>
+            Updates an existing movie
+            </summary>
+            <param name="movie">Updated movie object</param>
+        </member>
+        <member name="M:Cinema.API.Controllers.MoviesController.Delete(System.Int32)">
+            <summary>
+            Deletes a movie by ID
+            </summary>
+            <param name="id">Movie ID</param>
+        </member>
+        <member name="M:Cinema.API.Controllers.SessionsController.GetAll">
+            <summary>
+            Returns a list of all sessions (schedule)
+            </summary>
+            <returns>List of sessions with movie and hall details</returns>
+        </member>
+        <member name="M:Cinema.API.Controllers.SessionsController.GetById(System.Int32)">
+            <summary>
+            Returns a specific session by ID
+            </summary>
+            <param name="id">Session ID</param>
+            <returns>The requested session</returns>
+        </member>
+        <member name="M:Cinema.API.Controllers.SessionsController.Create(Cinema.API.Models.Session)">
+            <summary>
+            Creates a new session (adds to schedule)
+            </summary>
+            <param name="session">Session object</param>
+            <returns>Created session</returns>
+        </member>
+        <member name="M:Cinema.API.Controllers.SessionsController.Delete(System.Int32)">
+            <summary>
+            Deletes a session by ID
+            </summary>
+            <param name="id">Session ID</param>
+        </member>
+        <member name="T:Cinema.API.Migrations.InitialCreate">
+            <inheritdoc />
+        </member>
+        <member name="M:Cinema.API.Migrations.InitialCreate.Up(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cinema.API.Migrations.InitialCreate.Down(Microsoft.EntityFrameworkCore.Migrations.MigrationBuilder)">
+            <inheritdoc />
+        </member>
+        <member name="M:Cinema.API.Migrations.InitialCreate.BuildTargetModel(Microsoft.EntityFrameworkCore.ModelBuilder)">
+            <inheritdoc />
+        </member>
+    </members>
+</doc>
