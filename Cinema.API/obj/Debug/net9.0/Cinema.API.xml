@@ -88,6 +88,21 @@
             </summary>
             <param name="id">Session ID</param>
         </member>
+        <member name="M:Cinema.API.Controllers.TicketController.Purchase(Cinema.API.Models.Ticket)">
+            <summary>
+            Purchases a ticket (Main Business Logic!)
+            </summary>
+        </member>
+        <member name="M:Cinema.API.Controllers.TicketController.GetById(System.Int32)">
+            <summary>
+            Get ticket details by ID
+            </summary>
+        </member>
+        <member name="M:Cinema.API.Controllers.TicketController.GetBySession(System.Int32)">
+            <summary>
+            Get all tickets for a specific session
+            </summary>
+        </member>
         <member name="T:Cinema.API.Migrations.InitialCreate">
             <inheritdoc />
         </member>

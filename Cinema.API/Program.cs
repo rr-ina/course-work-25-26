@@ -2,6 +2,8 @@ using Microsoft.EntityFrameworkCore;
 using Cinema.API.Data;
 using Cinema.API.Repositories.Interfaces;
 using Cinema.API.Repositories.Implementations;
+using Cinema.API.Services;
+using Cinema.API.Services.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -13,6 +15,7 @@ builder.Services.AddScoped<IMovieRepo, MovieRepo>();
 builder.Services.AddScoped<IHallRepo, HallRepo>();
 builder.Services.AddScoped<ISessionRepo, SessionRepo>();
 builder.Services.AddScoped<ITiketRepo, TiketRepo>();
+builder.Services.AddScoped<ITicketService, TicketService>();
 
 builder.Services.AddControllers();
 
