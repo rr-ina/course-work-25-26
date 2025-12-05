@@ -90,7 +90,7 @@
         </member>
         <member name="M:Cinema.API.Controllers.TicketController.Purchase(Cinema.API.Models.Ticket)">
             <summary>
-            Purchases a ticket (Main Business Logic!)
+            Purchases a ticket
             </summary>
         </member>
         <member name="M:Cinema.API.Controllers.TicketController.GetById(System.Int32)">

@@ -17,7 +17,7 @@ namespace Cinema.API.Controllers
         }
 
         /// <summary>
-        /// Purchases a ticket (Main Business Logic!)
+        /// Purchases a ticket
         /// </summary>
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
         [HttpPost("purchase")]
