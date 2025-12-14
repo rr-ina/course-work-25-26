@@ -24,10 +24,10 @@ namespace Cinema.Tests
         public async Task GetAll_ReturnsOk()
         {
             //Arrange
-            var movies = new List<Movie> 
-            { 
+            var movies = new List<Movie>
+            {
                 new Movie { Id = 1, Title = "Dune 2" },
-                new Movie { Id = 2, Title = "Barbie" } 
+                new Movie { Id = 2, Title = "Barbie" }
             };
             _mockRepo.Setup(repo => repo.GetAllAsync()).ReturnsAsync(movies);
 
