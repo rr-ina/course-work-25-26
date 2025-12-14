@@ -21,8 +21,15 @@ namespace Cinema.API.Controllers
         /// </summary>
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
         [HttpPost("purchase")]
-        public async Task<ActionResult<Ticket>> Purchase(Ticket ticket)
+        public async Task<ActionResult<Ticket>> Purchase([FromBody] BuyTicketDto request)
         {
+            var ticket = new Ticket
+            {
+                SessionId = request.SessionId,
+                SeatNumber = request.SeatNumber,
+                CustomerName = request.CustomerName,
+                PurchaseTime = DateTime.UtcNow 
+            };
             try
             {
                 var createdTicket = await _ticketService.BuyTicketAsync(ticket);
@@ -56,4 +63,11 @@ namespace Cinema.API.Controllers
             return await _ticketService.GetTicketsBySessionAsync(sessionId);
         }
     }
+}
+
+public class BuyTicketDto
+{
+    public int SessionId { get; set; }
+    public int SeatNumber { get; set; }
+    public string CustomerName { get; set; }
 }

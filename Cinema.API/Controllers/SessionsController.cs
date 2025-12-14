@@ -50,15 +50,21 @@ namespace Cinema.API.Controllers
         /// <returns>Created session</returns>
         [ApiConventionMethod(typeof(DefaultApiConventions), nameof(DefaultApiConventions.Post))]
         [HttpPost(Name = "CreateSession")]
-        public async Task<ActionResult<Session>> Create(Session session)
+        public async Task<ActionResult<Session>> Create([FromBody] CreateSessionDto request)
         {
-            // Проста перевірка, щоб не передавали 0 або від'ємні ID
+            var session = new Session
+            {
+                MovieId = request.MovieId,
+                HallId = request.HallId,
+                StartTime = request.StartTime, 
+                TicketPrice = request.TicketPrice
+            };
+
             if (session.MovieId <= 0 || session.HallId <= 0)
             {
                 return BadRequest("MovieId and HallId are required and must be valid.");
             }
 
-            // Перевірка ціни
             if (session.TicketPrice < 0)
             {
                 return BadRequest("Price cannot be negative.");
@@ -79,5 +85,13 @@ namespace Cinema.API.Controllers
             await _sessionRepo.DeleteAsync(id);
             return NoContent();
         }
+    }
+
+    public class CreateSessionDto
+    {
+        public int MovieId { get; set; }
+        public int HallId { get; set; }
+        public DateTime StartTime { get; set; }
+        public decimal TicketPrice { get; set; }
     }
 }

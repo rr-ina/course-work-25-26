@@ -75,7 +75,7 @@
             <param name="id">Session ID</param>
             <returns>The requested session</returns>
         </member>
-        <member name="M:Cinema.API.Controllers.SessionsController.Create(Cinema.API.Models.Session)">
+        <member name="M:Cinema.API.Controllers.SessionsController.Create(Cinema.API.Controllers.CreateSessionDto)">
             <summary>
             Creates a new session (adds to schedule)
             </summary>
@@ -88,7 +88,7 @@
             </summary>
             <param name="id">Session ID</param>
         </member>
-        <member name="M:Cinema.API.Controllers.TicketController.Purchase(Cinema.API.Models.Ticket)">
+        <member name="M:Cinema.API.Controllers.TicketController.Purchase(BuyTicketDto)">
             <summary>
             Purchases a ticket
             </summary>
